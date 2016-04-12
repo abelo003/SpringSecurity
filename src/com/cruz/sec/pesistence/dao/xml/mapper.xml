@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mx.com.t360.selfmgmt.persistence.dao.TransactionsDao">
+	<resultMap id="fnObtenerTarjeta" type="com.cruz.sec.dto.com.cruz.sec.dto.Ejemplo">
+		<result property="producto" 	column="FCPRODUCTO"/>
+		<result property="tipo" 		column="FCTIPO"/>
+		<result property="bancoEmisor" 	column="FCBANCOEMISOR"/>
+	</resultMap>
+</mapper>

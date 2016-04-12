@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/security/oauth
+       http://www.springframework.org/schema/security/spring-security-oauth.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+    
+    <!--NO LE PONEMOS SEGURIDAD A LA CARPETA DE resources Y TODO LO QUE TENGA DENTRO-->
+    <!--<http security="none" pattern="/static/**" />-->
+    <sec:http security="none" pattern="/js/**"/>
+    <sec:http security="none" pattern="/css/**" />
+    <sec:http security="none" pattern="/images/**"/>
+    <sec:http security="none" pattern="/fonts/**"/>
+    
+    
+    <sec:http use-expressions="true" 
+    	access-denied-page="/error/403" 
+    	disable-url-rewriting="true" 
+    	create-session="always"
+    	entry-point-ref="authenticationEntryPoint"
+    	auto-config="true">
+    	
+    	<sec:custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrencyFilter" />
+    	<sec:session-management session-authentication-strategy-ref="sas"/>
+    	
+        <sec:form-login login-page="/login" 
+        	login-processing-url="/_login" 
+       		default-target-url="/"
+			username-parameter="username" password-parameter="password"
+            authentication-success-handler-ref="authenticationSuccessHandler"
+            authentication-failure-handler-ref="authenticationFailureHandler"/>
+        <sec:logout logout-url="/logout"
+                delete-cookies="JSESSIONID" 
+                invalidate-session="true"
+                success-handler-ref="logoutSuccessHandler"/>
+        <sec:intercept-url pattern="/login*" access="permitAll()" />
+        <sec:intercept-url pattern="/error/*" access="permitAll()" />
+        
+    </sec:http>
+    
+    <sec:authentication-manager>
+		<sec:authentication-provider ref="myAuthenticationProvider"/>
+    </sec:authentication-manager>
+    
+    <bean id="customJDBCDaoImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="usersByUsernameQuery">
+            <value>
+                SELECT USERNAME AS username, PASSWORD AS password, ENABLED AS ENABLED
+  					FROM dbo.USER
+                	WHERE USERNAME = ? AND FLENABLED = 1
+            </value>
+        </property>
+        <property name="authoritiesByUsernameQuery">
+            <value>
+                SELECT U.USERNAME AS username, AU.AUTHORITY AS authority
+				FROM [dbo].[ROLE_NAME] AS UN
+					INNER JOIN dbo.AUTHORITIES AS AU ON AU.AUTHORITY = UN.AUTHORITY
+					INNER JOIN dbo.USERNAME AS U ON U.USERNAME = AU.USERNAME
+				WHERE AU.USERNAME = 'ABEL' AND U.ENABLED = 1
+           	</value>
+        </property>
+    </bean>
+    
+    <!-- Nuevo -->
+    <bean id="myAuthenticationProvider" class="com.cruz.sec.config.MyAuthenticationProvider">
+        <property name="customJDBCDaoImpl" ref="customJDBCDaoImpl" />
+        <property name="shaPasswordEncoder" ref="shaPasswordEncoder"/>
+        <property name="saltSource">
+        	<bean class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+		        <property name="userPropertyToUse" value="getUsername"/>
+		    </bean>
+        </property>
+        <property name="sessionRegistry" ref="sessionRegistry"/>
+    </bean>
+    
+     <!--Clase de encriptacion-->
+    <bean id="shaPasswordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="512" />
+	</bean>
+    
+    <bean id="authenticationEntryPoint"  class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <property name="loginFormUrl" value="/login"/>
+    </bean>
+    
+    <!--Filtro para el logout-->
+    <bean id="logoutSuccessHandler" class="com.cruz.sec.config.ItemBasedLogoutSuccessHandler">
+    </bean>
+    <!--Inicio de sesión exitoso-->
+    <bean id="authenticationSuccessHandler" class="com.cruz.sec.config.ItemIdBasedAuthenticationSuccessHandler">
+        <property name="defaultTargetUrl" value="/"/>
+    </bean>
+    <!--Inicio de sesión fallido-->
+    <bean id="authenticationFailureHandler" class="com.cruz.sec.config.ItemBasedAuthenticationFailureHandler" >
+    </bean>
+    
+    <!--Filtro de concurencia-->
+    <bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+        <property name="sessionRegistry" ref="sessionRegistry" />
+        <property name="expiredUrl" value="/error/999" />
+    </bean>
+    
+    <!--Autenticación estratégica de sesión-->
+    <bean id="sas" class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+                    <constructor-arg ref="sessionRegistry"/>
+                    <property name="maximumSessions" value="1" />
+                    <property name="exceptionIfMaximumExceeded" value="true" />
+                </bean>
+                <bean class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy">
+                </bean>
+                <bean class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+                    <constructor-arg ref="sessionRegistry"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <!-- Registro de las sesiones en el contexto -->
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+    
+    <!-- 	FILTRO PARA SABER CUANDO SE DESTRUYE UNA OBJECTO SESION -->
+    <bean id="sessionExpirationFilter" class="com.cruz.sec.config.SessionExpirationFilter">
+<!--         <property name="requestNodeJS" ref="requestNodeJS"/> -->
+    </bean>
+    
+    <!-- Peticiones para cerrar sesiones cliente (wsockets) -->
+    <bean id="requestWSocket" class="com.cruz.sec.config.RequestWSocket" scope="Session">
+    	<property name="urlWSocket" value="/refresh/window/"/>
+    </bean>
+    
+</beans>

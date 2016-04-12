@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SpringSecurity">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="spring-jms-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-jms-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-context-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-security-config-3.2.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-security-config-3.2.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-security-web-3.2.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-security-web-3.2.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-security-core-3.2.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-security-core-3.2.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-jdbc-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/commons-logging-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-web-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-expression-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-portlet-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-webmvc-portlet-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-oxm-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-oxm-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cglib-2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/cglib-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-support-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-context-support-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-instrument-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-instrument-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-beans-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-core-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-asl-1.9.13.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/jackson-core-asl-1.9.13.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aopalliance-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/aopalliance-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-tx-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.servlet.jsp.jstl-api-1.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/javax.servlet.jsp.jstl-api-1.2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-mapper-asl-1.9.13.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/jackson-mapper-asl-1.9.13.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-security-taglibs-3.2.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-security-taglibs-3.2.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-webmvc-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-aop-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aspects-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-aspects-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="acegi-security-1.0.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Program Files (x86)/Java/JAR_PORTAL_MOVIL/PMResponsive/acegi-security-1.0.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/commons-codec-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsoup-1.8.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/jsoup-1.8.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-websocket-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-websocket-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-messaging-4.0.1.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/SpringSec/spring-messaging-4.0.1.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mybatis-spring-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/Extras/mybatis-spring-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mybatis-3.2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/Users/acruzb/Documents/Librerias Java/Extras/mybatis-3.2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sqljdbc4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Program Files/Java/Librerias/SQL/sqljdbc4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="SpringSecurity"/>
+        <property name="java-output-path" value="/SpringSecurity/build/classes"/>
+    </wb-module>
+</project-modules>

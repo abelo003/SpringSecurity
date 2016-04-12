@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+	
+	<!-- Conexión a un jndi -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">	
+<!--         <property name="jndiName" value="java:/jdbc/NOMBRE_DE_LA_FUENTE"/> -->
+    </bean>
+    
+    <!-- Conexión directa -->
+    
+    <!--Cargo el archvo de propiedades de las creedenciales de la conexión a base de datos-->
+<!--     <context:property-placeholder location="/WEB-INF/properties/database.properties"/> -->
+    
+<!--     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> -->
+<!--         <property name="driverClassName" value="${database.driverClassName}" /> -->
+<!--         <property name="url" value="${database.url}" /> -->
+<!--         <property name="username" value="${database.username}" /> -->
+<!--         <property name="password" value="${database.password}" /> -->
+<!--     </bean> -->
+    
+    <!-- Se cargan los archivos de propiedades para hacer uso de ellos en jsp y java -->
+<!--     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"> -->
+<!--         <property name="basenames"> -->
+<!--             <list> -->
+<!--                 <value>/WEB-INF/properties/database.properties</value> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--         <property name="defaultEncoding" value="UTF-8"/> -->
+<!--         <property name="cacheSeconds" value="1"/> -->
+<!--     </bean> -->
+    
+    
+	<!--  SERVICE  -->
+<!--     <bean id="transactionOperationServiceImpl" class="com.cruz.sec.service.TransactionOperationServiceImpl"> -->
+<!--         <constructor-arg index="0" ref="transactionsDao" /> -->
+<!--     </bean> -->
+
+    <!--  DAO  -->
+<!--     <bean id="transactionsDao" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
+<!--       <property name="mapperInterface" value="com.cruz.sec.persistence.dao.TransactionsDao" /> -->
+<!--       <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
+<!--     </bean> -->
+    
+<!--      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
+<!--         <property name="dataSource" ref="dataSource" /> -->
+<!--         <property name="mapperLocations" value="classpath:com/cruz/sec/persistence/dao/xml/*.xml" /> -->
+<!--     </bean> -->
+    
+</beans>
